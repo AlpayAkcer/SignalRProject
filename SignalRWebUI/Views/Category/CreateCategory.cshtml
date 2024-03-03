@@ -1,0 +1,47 @@
+﻿@model SignalRWebUI.DtoViewModels.CategoryDto.CreateCategoryDto
+@{
+    ViewData["Title"] = "CreateCategory";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">
+            Yeni Kategori Kayıt
+            <a href="/Category" style="float:right;" class="btn btn-outline-primary">Liste</a>
+        </h4>
+        <div class="row">
+            <div class="col-md-12">
+                <form method="post">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Kategori Bilgileri</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="categoryName">Kategori Adı</label>
+                                <input type="text" class="form-control" id="CategoryName" asp-for="CategoryName" placeholder="Kategori Adı">
+                            </div>
+                            <div class="form-check">
+                                <label>Durum</label><br />
+                                <label class="form-radio-label">
+                                    <input class="form-radio-input" type="radio" name="Status" value="" checked="">
+                                    <span class="form-radio-sign">Aktif</span>
+                                </label>
+                                <label class="form-radio-label ml-3">
+                                    <input class="form-radio-input" type="radio" name="Status" value="">
+                                    <span class="form-radio-sign">Pasif</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="card-action">
+                            <button class="btn btn-success">Submit</button>
+                            <button class="btn btn-danger">Cancel</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

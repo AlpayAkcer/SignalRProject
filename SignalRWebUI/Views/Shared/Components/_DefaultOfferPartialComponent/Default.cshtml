@@ -1,0 +1,53 @@
+﻿@model List<ResultDiscountDto>
+<section class="offer_section layout_padding-bottom">
+    <div class="offer_container">
+        <div class="container ">
+            <div class="row">
+                @foreach (var item in Model.Take(2))
+                {
+                    <div class="col-md-6  ">
+                        <div class="box ">
+                            <div class="img-box">
+                                <img src="@item.ImageUrl" alt="">
+                            </div>
+                            <div class="detail-box">
+                                <h5>
+                                    @item.Title
+                                </h5>
+                                <span>@item.Description</span>
+                                <h6>
+                                    <span>@item.Amount.ToString("C")</span>
+                                </h6>
+                                <a href="">
+                                    Sipariş Ver
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                }
+                @foreach (var item in Model.Skip(2))
+                {
+                    <div class="col-md-6  ">
+                        <div class="box ">
+                            <div class="img-box">
+                                <img src="@item.ImageUrl" alt="">
+                            </div>
+                            <div class="detail-box">
+                                <h5>
+                                    @item.Title
+                                </h5>
+                                <span>@item.Description</span>
+                                <h6>
+                                    <span>@item.Amount.ToString("C")</span>
+                                </h6>
+                                <a href="">
+                                    Sipariş Ver
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>

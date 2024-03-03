@@ -1,0 +1,23 @@
+﻿
+--Dashboard ekranında verilerin getirilmesini planlanılan methodlar
+
+  CategoryCount();				++
+  ActiveCategory();				++
+  PassiveCategory();			++
+
+  MenuTableCount();				++
+
+  TotalMoneyCaseAmount();		++
+
+
+  OrderTotalCount();			++
+  ActiveOrderCount();			++
+  LastOrderTotalPrice();		++
+  TodayTotalPrice();			++
+
+  ProductCount();				++
+  ProductPriceAvg();			++
+  ProductNamePriceByMax();		++
+  ProductNamePriceByMin();		++
+  ProductPriceByCategory();		
+

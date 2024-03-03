@@ -1,0 +1,64 @@
+﻿@using X.PagedList;
+@using X.PagedList.Mvc.Core;
+@model IPagedList<ResultNotificationDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Bildirim İşlemleri  <a href="/Notification/CreateNotification" style="float:right;" class="btn btn-outline-dark">Yeni Bildirim Ekle</a></h4>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <table class="table mt-3">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Type</th>
+                                    <th>Icon</th>
+                                    <th>Description</th>
+                                    <th>Status</th>
+                                    <th>İşlemler</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.NotificationID</td>
+                                        <td>@item.Type</td>
+                                        <td>@item.Icon</td>
+                                        <td>@item.Description</td>
+                                        <td>
+                                            @if (item.Status == true)
+                                            {
+                                                <a href="/Notification/ChangeStatus/@item.NotificationID"> <span class="badge badge-success">Aktif</span></a>
+
+                                            }
+                                            else
+                                            {
+                                                <a href="/Notification/ChangeStatus/@item.NotificationID">
+                                                    <span class="badge badge-danger">Pasif</span>
+                                                </a>
+                                            }
+                                        </td>
+                                        <td>
+                                            <a href="/Notification/DeleteNotification/@item.NotificationID" class="btn btn-outline-danger">Sil</a>
+                                            <a href="/Notification/UpdateNotification/@item.NotificationID" class="btn btn-outline-success">Güncelle</a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                        @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page = page }))
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

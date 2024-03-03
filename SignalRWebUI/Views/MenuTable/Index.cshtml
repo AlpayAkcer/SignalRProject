@@ -1,0 +1,53 @@
+﻿@model List<ResultMenuTableDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+    int count = 0;
+}
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Masa İşlemleri  <a href="/MenuTable/CreateMenuTable" style="float:right;" class="btn btn-outline-dark">Yeni Masa Ekle</a></h4>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <table class="table mt-3">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Masa Adı</th>
+                                    <th>Status</th>
+                                    <th>İşlemler</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    count++;
+                                    <tr>
+                                        <td>@count</td>
+                                        <td>@item.Name</td>
+                                        <td>
+                                            @if (item.Status == true)
+                                            {
+                                                <span class="badge badge-success">Aktif</span>
+                                            }
+                                            else
+                                            {
+                                                <span class="badge badge-danger">Pasif</span>
+                                            }
+                                        </td>
+                                        <td>
+                                            <a href="/MenuTable/DeleteMenuTable/@item.MenuTableID" class="btn btn-outline-danger">Sil</a>
+                                            <a href="/MenuTable/UpdateMenuTable/@item.MenuTableID" class="btn btn-outline-success">Güncelle</a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

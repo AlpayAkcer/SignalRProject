@@ -1,0 +1,110 @@
+﻿@model SignalRWebUI.DtoViewModels.ProductDto.CreateProductDto
+
+@{
+    ViewData["Title"] = "CreateProduct";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">
+            Yeni Ürün Kayıt
+            <a href="/Product" style="float:right;" class="btn btn-outline-primary">Liste</a>
+        </h4>
+        <div class="row">
+            <div class="col-md-12">
+                <form method="post">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Ürün Bilgileri</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="categoryName">Ürün Adı</label>
+                                        <input type="text" class="form-control" id="ProductName" asp-for="ProductName" placeholder="Ürün Adı">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="categoryName">Kategori</label>
+                                        @Html.DropDownListFor(x => x.CategoryID, (List<SelectListItem>)@ViewBag.ViewCategory, "--Kategori Seçiniz--", new { @class = "form-control" })
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="categoryName">Ürün Açıklaması</label>
+                                <textarea type="text" class="form-control" id="Description" asp-for="Description"></textarea>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="categoryName">Ürün Fiyatı</label>
+                                        <input type="text" class="form-control" id="Price" asp-for="Price">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="categoryName">Ürün Resim</label>
+                                        <input type="text" class="form-control" id="Price" asp-for="ImageUrl">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-check">
+                                        <label>Yeni mi?</label><br />
+                                        <label class="form-radio-label">
+                                            <input class="form-radio-input" type="radio" asp-for="IsFeatured" id="IsFeatured" value="" checked="">
+                                            <span class="form-radio-sign">Aktif</span>
+                                        </label>
+                                        <label class="form-radio-label ml-3">
+                                            <input class="form-radio-input" type="radio" asp-for="IsFeatured" id="IsFeatured" value="">
+                                            <span class="form-radio-sign">Pasif</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-check">
+                                        <label>Özel mi?</label><br />
+                                        <label class="form-radio-label">
+                                            <input class="form-radio-input" type="radio" asp-for="IsSpecial" id="IsSpecial" value="" checked="">
+                                            <span class="form-radio-sign">Aktif</span>
+                                        </label>
+                                        <label class="form-radio-label ml-3">
+                                            <input class="form-radio-input" type="radio" asp-for="IsSpecial" id="IsSpecial" value="">
+                                            <span class="form-radio-sign">Pasif</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-check">
+                                        <label>Durum</label><br />
+                                        <label class="form-radio-label">
+                                            <input class="form-radio-input" type="radio" asp-for="Status" id="Status" value="" checked="">
+                                            <span class="form-radio-sign">Aktif</span>
+                                        </label>
+                                        <label class="form-radio-label ml-3">
+                                            <input class="form-radio-input" type="radio" asp-for="Status" id="Status" value="">
+                                            <span class="form-radio-sign">Pasif</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-action">
+                            <button class="btn btn-success">Submit</button>
+                            <button class="btn btn-danger">Cancel</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
